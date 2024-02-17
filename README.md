@@ -28,13 +28,5 @@ This project developed in Spring Boot implements a RESTful API using the REST ar
 | GET    | /api/student/{id}          | Get details of a student by ID        | Sprint 1    |
 | PUT    | /api/student/{id}          | Update details of a student by ID     | Sprint 1    |
 | DELETE | /api/student/{id}          | Delete a student by ID                | Sprint 1    |
-| POST   | /api/professor             | Register a new professor              | Sprint 1    |
-| POST   | /api/enrollment            | Register a new enrollment             | Sprint 1    |
-| DELETE | /api/enrollment/{id}       | Delete an enrollment by ID            | Sprint 1    |
-| GET    | /api/enrollment            | Get all enrollments                   | Sprint 1    |
-| POST   | /api/course                | Register a new course                 | Sprint 1    |
-| GET    | /api/course                | Get all courses                       | Sprint 1    |
-| GET    | /api/course/{id}           | Get details of a course by ID         | Sprint 1    |
-| PUT    | /api/course/update/{id}    | Update details of a course by ID      | Sprint 1    |
-| DELETE | /api/course/{id}           | Delete a course by ID                 | Sprint 1    |
+
 
