@@ -10,16 +10,29 @@ import java.util.NoSuchElementException;
 
 @Repository
 public class StudentService {
-    private final StudentRepositoryPost studentRepository;
+    private final StudentRepositoryPost studentRepositoryPost;
 
     @Autowired
 
     public StudentService(StudentRepositoryPost studentRepository) {
-        this.studentRepository = studentRepository;
+        this.studentRepositoryPost = studentRepository;
+    }
+
+    //Devuelve null si no se encuentra
+    public Student getStudent(Long id){
+        return studentRepositoryPost.findById(id).orElse(null);
+    }
+
+    public List<Student> getAllStudents() {
+        return studentRepositoryPost.findAll();
+    }
+
+    public void deleteStudentById(Long id) {
+        studentRepositoryPost.deleteById(id);
     }
 
     public Student updateStudent(Long id, String name, String email, String phone) {
-        Student existingStudent = studentRepository.findById(id).orElse(null);
+        Student existingStudent = studentRepositoryPost.findById(id).orElse(null);
 
         if (existingStudent == null) {
             throw new NoSuchElementException("Student with ID " + id + " not found");
@@ -29,17 +42,6 @@ public class StudentService {
         existingStudent.setEmail(email);
         existingStudent.setPhone(phone);
 
-        return studentRepository.save(existingStudent);
-    }
-    public Student getStudent(Long id){
-        return studentRepository.findById(id).orElse(null);
-    }
-
-    public List<Student> getAllStudents() {
-        return studentRepository.findAll();
-    }
-
-    public void deleteStudentById(Long id) {
-        studentRepository.deleteById(id);
+        return studentRepositoryPost.save(existingStudent);
     }
 }
